@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// Import modul Routes dari react-router-dom
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/navbar';
+import Hello from './components/hello';
+import About from './components/about';
+import Skill from './components/skill';
+import Hobby from './components/hobby';
+import Contact from './components/contact';
+
+import './style.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        {/* Gantikan Switch dengan Routes */}
+        <Routes>
+          <Route path="/" element={<Hello />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skill" element={<Skill />} />
+          <Route path="/hobby" element={<Hobby />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
